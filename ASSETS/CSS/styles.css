@@ -4,6 +4,9 @@ html{
 
 *, *::before, *::after {
     box-sizing: inherit;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    text-align: center;
   }
 
   #piano {
