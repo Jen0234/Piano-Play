@@ -88,31 +88,3 @@ navigator.mediaDevices.getUserMedia({ audio: true })
       console.log('Error: ' + err);
    });
 
-//download the audio    
-
-
-// downloadButton.addEventListener('click', () => {
-//    const blobObj = new Blob(audioChunks, { type: 'audio/webm' });
-//    const audioUrl = URL.createObjectURL(blobObj);
-//    const audio = new Audio(audioUrl);
-//    audio.download();
-//    output.innerHTML = 'Downloading the audio!';
-// });
-
-// function newFile(data) {
-//     var json = JSON.stringify(data);
-//     var blob = new Blob([json], {type: 'octet/stream'});
-//     var url  = window.URL.createObjectURL(blob);
-//     window.location.assign(url);
-// }
-
-// const recordAudio = () =>
-//   new Promise(async resolve => {
-//     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-//     const mediaRecorder = new MediaRecorder(stream);
-//     const audioChunks = [];
-//     output.innerHTML = 'Downloading the audio!';
-
-//     mediaRecorder.addEventListener("dataavailable", event => {
-//       audioChunks.push(event.data);
-//     })});
