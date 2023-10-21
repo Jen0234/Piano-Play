@@ -65,3 +65,25 @@ html{
         width: 633px;
       }
   }
+
+  .box{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    padding: 10px 10px ;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 10px solid plum;
+  }
+  button{
+    font-size: 45px;
+    font-weight: bold;
+    background-color: plum;
+    box-shadow: #ffffff 2px 2px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }

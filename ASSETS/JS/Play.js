@@ -5,7 +5,6 @@ const keys = document.querySelectorAll('.key')
 const whiteKeys = document.querySelectorAll('.key.key--white')
 const blackKeys = document.querySelectorAll('.key.key--black')
 
-console.log(blackKeys)
 
 keys.forEach(key => {
   key.addEventListener('click', () => playNote(key))
@@ -30,3 +29,90 @@ function playNote(key) {
     key.classList.remove('active')
   })
 }
+
+//recording
+
+navigator.mediaDevices.getUserMedia({ audio: true })
+.then(stream => {
+   audioRecorder = new MediaRecorder(stream);
+   audioRecorder.start();
+   audioRecorder.stop();
+   const blobObj = new Blob(audioChunks, { type: 'audio/webm' });
+   const audioUrl = URL.createObjectURL(blobObj);
+   const audio = new Audio(audioUrl);
+   audio.play();
+})
+
+const startButton = document.getElementById('start');
+const stopButton = document.getElementById('stop');
+const playButton = document.getElementById('play');
+const downloadButton = document.getElementById('download');
+let output = document.getElementById('output');
+let audioRecorder;
+let audioChunks = [];
+navigator.mediaDevices.getUserMedia({ audio: true })
+   .then(stream => {
+   
+      // Initialize the media recorder object
+      audioRecorder = new MediaRecorder(stream);
+      
+      // dataavailable event is fired when the recording is stopped
+      audioRecorder.addEventListener('dataavailable', e => {
+         audioChunks.push(e.data);
+      });
+      
+      // start recording when the start button is clicked
+      startButton.addEventListener('click', () => {
+         audioChunks = [];
+         audioRecorder.start();
+         output.innerHTML = 'Recording started! Speak now.';
+      });
+      
+      // stop recording when the stop button is clicked
+      stopButton.addEventListener('click', () => {
+         audioRecorder.stop();
+         output.innerHTML = 'Recording stopped! Click on the play button to play the recorded audio.';
+      });
+      
+      // play the recorded audio when the play button is clicked
+      playButton.addEventListener('click', () => {
+         const blobObj = new Blob(audioChunks, { type: 'audio/webm' });
+         const audioUrl = URL.createObjectURL(blobObj);
+         const audio = new Audio(audioUrl);
+         audio.play();
+         output.innerHTML = 'Playing the recorded audio!';
+      });
+   }).catch(err => {
+   
+      // If the user denies permission to record audio, then display an error.
+      console.log('Error: ' + err);
+   });
+
+//download the audio    
+
+
+// downloadButton.addEventListener('click', () => {
+//    const blobObj = new Blob(audioChunks, { type: 'audio/webm' });
+//    const audioUrl = URL.createObjectURL(blobObj);
+//    const audio = new Audio(audioUrl);
+//    audio.download();
+//    output.innerHTML = 'Downloading the audio!';
+// });
+
+// function newFile(data) {
+//     var json = JSON.stringify(data);
+//     var blob = new Blob([json], {type: 'octet/stream'});
+//     var url  = window.URL.createObjectURL(blob);
+//     window.location.assign(url);
+// }
+
+// const recordAudio = () =>
+//   new Promise(async resolve => {
+//     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+//     const mediaRecorder = new MediaRecorder(stream);
+//     const audioChunks = [];
+//     output.innerHTML = 'Downloading the audio!';
+
+//     mediaRecorder.addEventListener("dataavailable", event => {
+//       audioChunks.push(event.data);
+//     })});
