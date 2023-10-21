@@ -4,36 +4,52 @@
     <meta charset="UTF-8">
     <title>Piano</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="ASSETS/CSS/styles.css">
   </head>
   <body>
     <h1> Piano <span>Play</span></h1>
     <div id="piano">
       <div class="keys">
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
+        <div data-note="C" class="key"></div>
+        <div data-note="Db" class="key black--key"></div>
+        <div data-note="Db" class="key black--key"></div>
+        <div data-note="D" class="key"></div>
+        <div data-note="Eb" class="key black--key"></div>
+        <div data-note="Eb" class="key black--key"></div>
+        <div data-note="Eb" class="key black--key"></div>
 
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
+        <div data-note="E"  class="key"></div>
+        <div data-note="Gb" class="key black--key"></div>
+        <div data-note="Gb" class="key black--key"></div>
+        <div data-note="F" class="key"></div>
+        <div data-note="Ab" class="key black--key"></div>
+        <div data-note="Ab" class="key black--key"></div>
+        <div data-note="Ab" class="key black--key"></div>
 
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
-        <div class="key black--key"></div>
+        <div  data-note="G" class="key"></div>
+        <div data-note="Ab" class="key black--key"></div>
+        <div data-note="Ab" class="key black--key"></div>
+        <div data-note="A" class="key"></div>
+        <div data-note="Bb" class="key black--key"></div>
+        <div data-note="Bb" class="key black--key"></div>
+        <div data-note="B" class="key black--key"></div>
       </div>
     </div>
+
+    <audio id="C" src="Key-Notes/C.mp3"></audio>
+    <audio id="Db" src="Key-Notes/Db.mp3"></audio>
+    <audio id="D" src="Key-Notes/D.mp3"></audio>
+    <audio id="Eb" src="Key-Notes/Eb.mp3"></audio>
+    <audio id="E" src="Key-Notes/E.mp3"></audio>
+    <audio id="F" src="Key-Notes/F.mp3"></audio>
+    <audio id="Gb" src="Key-Notes/Gb.mp3"></audio>
+    <audio id="G" src="Key-Notes/G.mp3"></audio>
+    <audio id="Ab" src="Key-Notes/Ab.mp3"></audio>
+    <audio id="A" src="Key-Notes/A.mp3"></audio>
+    <audio id="Bb" src="Key-Notes/Bb.mp3"></audio>
+    <audio id="B" src="Key-Notes/B.mp3"></audio>
+
+    <script src="ASSETS/JS/Play.js"></script>
   </body>
 </html>
